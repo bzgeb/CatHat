@@ -9,7 +9,8 @@ public class Interaction : MonoBehaviour {
 	private bool hover;
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (collider.Raycast(ray, out hit, 100))
 		{
@@ -25,7 +26,7 @@ public class Interaction : MonoBehaviour {
 		
 		if (hover && Input.GetMouseButtonDown(0))
 		{
-			SendMessage("OnClick");
+			SendMessage("OnClick", SendMessageOptions.RequireReceiver);
 		}
 	}
 }

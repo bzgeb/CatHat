@@ -37,7 +37,7 @@ public class MovieControl : MonoBehaviour {
 	{
 		if (was_playing && !movie.isPlaying)
 		{
-			level.start_scene();
+			level.OnVideoEnd();
 			was_playing = false;
 		}
 	}

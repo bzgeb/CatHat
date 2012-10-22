@@ -18,7 +18,7 @@ public class Level : MonoBehaviour {
 		GUI.Box(new Rect(0, 0, game_camera.pixelWidth, game_camera.pixelHeight), UITexture);
 	}
 	
-	public void start_scene()
+	public void OnVideoEnd()
 	{
 		foreach(GameObject obj in objects)
 		{
