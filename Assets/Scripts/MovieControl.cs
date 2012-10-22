@@ -5,6 +5,8 @@ using System.Collections;
 public class MovieControl : MonoBehaviour {
 
 	public Level level;
+	private MovieTexture movie;
+	private bool was_playing;
 	
 	// Use this for initialization
 	void Start () 
@@ -14,11 +16,12 @@ public class MovieControl : MonoBehaviour {
 			level = GetComponent<Level>();
 		}
 		
-		
-		renderer.material.mainTexture = level.movies[0];
+		movie = level.movies[0];
+		renderer.material.mainTexture = movie;
 		level.index = 0;
 		
-		((MovieTexture)renderer.material.mainTexture).Play();
+		movie.Play();
+		was_playing = true;
 		
 		MeshFilter mesh_filter = GetComponent<MeshFilter>();
 		
@@ -32,14 +35,10 @@ public class MovieControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (was_playing && !movie.isPlaying)
 		{
-			((MovieTexture)renderer.material.mainTexture).Pause();
-			
-			level.index = (level.index + 1) % level.movies.Length;
-			renderer.material.mainTexture = level.movies[level.index];
-			
-			((MovieTexture)renderer.material.mainTexture).Play();
+			level.start_scene();
+			was_playing = false;
 		}
 	}
 }

@@ -6,6 +6,7 @@ public class Level : MonoBehaviour {
     public int index;
     public Texture2D UITexture;
     private Camera game_camera;
+    public GameObject[] objects;
     
 	void Start()
 	{
@@ -15,5 +16,13 @@ public class Level : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.Box(new Rect(0, 0, game_camera.pixelWidth, game_camera.pixelHeight), UITexture);
+	}
+	
+	public void start_scene()
+	{
+		foreach(GameObject obj in objects)
+		{
+			obj.SetActiveRecursively(true);
+		}
 	}
 }
