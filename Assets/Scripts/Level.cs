@@ -15,6 +15,7 @@ public class Level : MonoBehaviour {
     
 	void OnGUI()
 	{
+		GUI.depth = 100;
 		GUI.Box(new Rect(0, 0, game_camera.pixelWidth, game_camera.pixelHeight), UITexture);
 	}
 	

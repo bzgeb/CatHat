@@ -8,18 +8,23 @@ public class Interaction : MonoBehaviour {
 	RaycastHit hit;
 	private bool hover;
 	
+	void Start ()
+	{
+		renderer.material.mainTexture = idle_texture;
+	}
+	
 	// Update is called once per frame
 	void Update () 
 	{
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (collider.Raycast(ray, out hit, 100))
 		{
-			renderer.sharedMaterial.mainTexture = hover_texture;
+			renderer.material.mainTexture = hover_texture;
 			hover = true;
 		}
 		else if(hover)
 		{
-			renderer.sharedMaterial.mainTexture = idle_texture;
+			renderer.material.mainTexture = idle_texture;
 			hover = false;
 		}
 		
