@@ -17,7 +17,7 @@ public class Doorframe : MonoBehaviour {
 		}
 		else
 		{
-			print("Need Hat");
+			audio.PlayOneShot(audio.clip);
 		}
 	}
 }

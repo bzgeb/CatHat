@@ -13,6 +13,8 @@ WebBuild/*
 *.apk
 *.pbxuser
 *.app
+*.exe
+*_Data
 
 Temp/*
 Library/*
