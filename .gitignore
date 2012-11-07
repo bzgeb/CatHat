@@ -1,4 +1,5 @@
 iOS-Build/*
+WebBuild/*
 */DerivedData/*
 *.booproj
 *.csproj
