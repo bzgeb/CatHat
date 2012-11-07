@@ -9,6 +9,9 @@ public class Inventory : MonoBehaviour {
 	public bool has_crown_royal;
 	private Rect crown_royal_box;
 	public Texture2D crown_royal_tex;
+	public Texture2D gun_tex;
+	public bool has_gun;
+	private Rect gun_box;
 	private Rect mood_box;
 	public Texture2D mood_tex;
 	private float detective_hat_angle;
@@ -33,6 +36,8 @@ public class Inventory : MonoBehaviour {
 		
 		detective_hat_box = new Rect(Screen.width * 0.03f, Screen.height * 0.07f, Screen.width * 0.08f, Screen.height * 0.08f);
 		crown_royal_box = new Rect(Screen.width * 0.36f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.12f);
+		
+		gun_box = new Rect(Screen.width * 0.45f, Screen.height * 0.85f, Screen.width * 0.1f, Screen.height * 0.12f);
 		
 		mood_box = new Rect(Screen.width * 0.735f, Screen.height * 0.83f, Screen.width * 0.15f, Screen.height * 0.15f);
 		
@@ -84,6 +89,11 @@ public class Inventory : MonoBehaviour {
 		if (has_crown_royal)
 		{
 			GUI.Box(crown_royal_box, crown_royal_tex, GUIStyle.none);
+		}
+		
+		if (has_gun)
+		{
+			GUI.Box(gun_box, gun_tex, GUIStyle.none);
 		}
 		
 		switch(wearing)
